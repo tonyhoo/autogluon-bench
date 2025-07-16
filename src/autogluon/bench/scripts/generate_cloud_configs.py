@@ -108,7 +108,7 @@ def generate_cloud_config(
     if instance:
         cdk_context["INSTANCE"] = instance
     if time_limit:
-        cdk_context["TIME_LIMIT"] = time_limit
+        cdk_context["TIME_LIMIT"] = int(time_limit) if isinstance(time_limit, str) else time_limit
 
     config["cdk_context"] = cdk_context
 
